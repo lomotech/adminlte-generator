@@ -21,7 +21,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('zz/categories', App\Http\Controllers\Zz\CategoryController::class);
-
-Route::resource('zz-categories', App\Http\Controllers\ZzCategoryController::class);
-Route::resource('zz/-categories', App\Http\Controllers\Zz/CategoryController::class);
+Route::resource('zz/categories', App\Http\Controllers\Zz\CategoryController::class)
+    ->names([
+        'index' => 'zz.categories.index',
+        'store' => 'zz.categories.store',
+        'show' => 'zz.categories.show',
+        'update' => 'zz.categories.update',
+        'destroy' => 'zz.categories.destroy',
+        'create' => 'zz.categories.create',
+        'edit' => 'zz.categories.edit'
+    ]);

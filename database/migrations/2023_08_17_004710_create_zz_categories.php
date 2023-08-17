@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('zz_categories', function (Blueprint $table) {
             $table->id();
             $table->foreignId('parent_id')->nullable()->constrained('zz_categories');
+            $table->string('name');
             $table->softDeletes();
             $table->timestamps();
         });
