@@ -5,5 +5,8 @@
 @else
     @{!! Form::label('{{ $fieldName }}', '{{ $fieldTitle }}:') !!}
 @endif
-    @{!! Form::text('{{ $fieldName }}', null, ['class' => 'form-control'@php if(isset($options)) { echo htmlspecialchars_decode($options); } @endphp]) !!}
+    @{!! Form::text('{{ $fieldName }}', null, ['class' => 'form-control'. ($errors->has('name') ? ' is-invalid' : '')@php if(isset($options)) { echo htmlspecialchars_decode($options); } @endphp]) !!}
+    @@if ($errors->has('name'))
+        <span class="error invalid-feedback">@{!! $errors->first('name') !!} </span>
+    @@endif
 </div>
