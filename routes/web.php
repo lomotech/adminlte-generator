@@ -31,3 +31,4 @@ Route::resource('zz/categories', App\Http\Controllers\Zz\CategoryController::cla
         'create' => 'zz.categories.create',
         'edit' => 'zz.categories.edit'
     ]);
+Route::resource('users', App\Http\Controllers\UserController::class);

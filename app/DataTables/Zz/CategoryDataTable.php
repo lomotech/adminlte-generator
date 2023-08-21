@@ -10,11 +10,8 @@ class CategoryDataTable extends DataTable
 {
     /**
      * Build DataTable class.
-     *
-     * @param mixed $query Results from query() method.
-     * @return \Yajra\DataTables\DataTableAbstract
      */
-    public function dataTable($query)
+    public function dataTable(mixed $query): \Yajra\DataTables\DataTableAbstract
     {
         $dataTable = new EloquentDataTable($query);
 
@@ -23,21 +20,16 @@ class CategoryDataTable extends DataTable
 
     /**
      * Get query source of dataTable.
-     *
-     * @param \App\Models\Category $model
-     * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Category $model)
+    public function query(Category $model): \Illuminate\Database\Eloquent\Builder
     {
         return $model->newQuery();
     }
 
     /**
      * Optional method if you want to use html builder.
-     *
-     * @return \Yajra\DataTables\Html\Builder
      */
-    public function html()
+    public function html(): \Yajra\DataTables\Html\Builder
     {
         return $this->builder()
             ->columns($this->getColumns())
@@ -63,7 +55,7 @@ class CategoryDataTable extends DataTable
      *
      * @return array
      */
-    protected function getColumns()
+    protected function getColumns(): array
     {
         return [
             'parent_id',
